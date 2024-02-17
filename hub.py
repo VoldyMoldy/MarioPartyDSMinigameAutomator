@@ -1,7 +1,19 @@
+#for all minigame scripts that require image detection the program assumes the emulator is fully on screen
+
+#import libraries to create window
 from tkinter import *
 from tkinter.ttk import *
+
+#import minigame scripts to be run on button click
 from get_the_lead_out import get_lead_out
 from sweet_sleuth import sweet_sleuth
+
+#functions to run minigame scripts
+def run_get_lead_out():
+    get_lead_out()  
+
+def run_sweet_sleuth():
+    sweet_sleuth()  
 
 #hub window to access all scripts easily
 hub_window = Tk()
@@ -17,21 +29,12 @@ hub_window.iconbitmap('images/hub/dice_block.ico')
 
 #find games to automate (could check yt, but should play through them first)
 
-#customizable delay before starting a script
-delay = 5
-delay_field = Text(hub_window, height = 5, width = 20)
 
-#update delay
-def update_delay():
-    global delay
-    delay = delay_field.get(index1 = 1)
+#buttons to run minigames
+btn_get_lead_out = Button(hub_window, text = "Get the Lead Out", command = run_get_lead_out)
+btn_get_lead_out.pack(pady=10)
 
-delay_button = Button(hub_window, text = 'Update Delay', command = update_delay())
+btn_sweet_sleuth = Button(hub_window, text = "Sweet Sleuth", command = run_sweet_sleuth)
+btn_sweet_sleuth.pack(pady=10)
 
-#sweet sleuth - use image recognition to find candies to bring to shy guy
-sweet_button = Button(hub_window, text = 'Sweet Sleuth', bg = 'gray', command = sweet_sleuth(delay))
-
-#get the lead out - button mash
-lead_button = Button(hub_window, text = 'Get The Lead Out', bg = 'white', command = get_lead_out(delay))
-
-mainloop()
+hub_window.mainloop()
