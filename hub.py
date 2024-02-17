@@ -6,14 +6,14 @@ from tkinter.ttk import *
 
 #import minigame scripts to be run on button click
 from get_the_lead_out import get_lead_out
-from sweet_sleuth import sweet_sleuth
+from goomba_wrangler import goomba_wrangler
 
 #functions to run minigame scripts
 def run_get_lead_out():
     get_lead_out()  
 
-def run_sweet_sleuth():
-    sweet_sleuth()  
+def run_goomba_wrangler():
+    goomba_wrangler()  
 
 #hub window to access all scripts easily
 hub_window = Tk()
@@ -34,7 +34,7 @@ hub_window.iconbitmap('images/hub/dice_block.ico')
 btn_get_lead_out = Button(hub_window, text = "Get the Lead Out", command = run_get_lead_out)
 btn_get_lead_out.pack(pady=10)
 
-btn_sweet_sleuth = Button(hub_window, text = "Sweet Sleuth", command = run_sweet_sleuth)
+btn_sweet_sleuth = Button(hub_window, text = "Sweet Sleuth", command = run_goomba_wrangler)
 btn_sweet_sleuth.pack(pady=10)
 
 hub_window.mainloop()
