@@ -1,6 +1,4 @@
-#get the lead out has the players mash a button to get lead out of a mechanical pencil as fast as possible
-#for some reason there is an acceleration system where you dont push lead out when button is pressed, but rather at a rate that goes up when you mash
-
+#goomba wrangler has players circle goombas to score points and avoid circling bombs
 import keyboard as key
 import pyautogui as gui
 import time
@@ -14,17 +12,20 @@ def get_lead_out():
     window = gw.getWindowsWithTitle("DeSmuME")[0]
     window.activate()
 
+    #get window position so program knows where to search
+    left, top, width, height = window.left, window.top, window.width, window.height
+
+    #only search the touch screen
+    region_to_search = (left, top + height/2, width, height/2)
+
     #delay the program starting to not mash early and mess up any menuing or switching to game window
-    time.sleep(2)
+    time.sleep(3)
 
     start_time = time.time()
-    while time.time() - start_time <= 15:
+    while time.time() - start_time <= 20:
         #emergency escape key since it is bound to left shoulder, which is not used for any minigames
         if key.is_pressed('q'):
             exit(0)
-        #mash the 'a button' in the game
-        gui.keyDown('x')
-        gui.keyUp('x')
 
     #change pyautogui delay back
     gui.PAUSE = 0.1
