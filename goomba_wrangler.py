@@ -4,9 +4,24 @@ import pyautogui as gui
 import time
 import pygetwindow as gw
 
-def get_lead_out():
-    #change pyautogui delay to mash faster
-    gui.PAUSE = 0.001
+def draw_circle(x: int, y: int):
+    #function to draw circle around the coords of a found goomba
+    #draws a hexagon instead because the game still counts it and is easier to code
+    gui.moveTo(x + 20, y)
+    gui.mouseDown()
+    gui.moveTo(x + 15, y + 15)
+    gui.moveTo(x, y + 20)
+    gui.moveTo(x - 15, y + 15)
+    gui.moveTo(x - 20, y)
+    gui.moveTo(x - 15, y - 15)
+    gui.moveTo(x, y - 20)
+    gui.moveTo(x + 15, y - 15)
+    gui.moveTo(x + 20, y)
+    gui.mouseUp()
+
+def goomba_wrangler():
+    #change pyautogui delay to circle faster
+    gui.PAUSE = 0.01
     
     # switch to emulator
     window = gw.getWindowsWithTitle("DeSmuME")[0]
@@ -26,6 +41,21 @@ def get_lead_out():
         #emergency escape key since it is bound to left shoulder, which is not used for any minigames
         if key.is_pressed('q'):
             exit(0)
+        #try locating either a golden goomba (+3) or normal goomba (+1), return none if not found
+        try:
+            gold = gui.locateOnScreen('images/goomba_wrangler/gold.png', region = region_to_search)
+        
+        except ImageNotFoundException as e:
+            gold = None
+            
+            try: #only try and find normal goombas if no golden goombas are found
+                normal = gui.locateOnScreen('images/goomba_wrangler/goomba.png', region = region_to_search)
+            except ImageNotFoundException as e:
+                normal = None
+        if gold != None: #check if there is a gold goomba first, if so prioritize circling it first
+            draw_circle(gold)
+        elif normal != None: #check if there are any avaliable goombas to circle
+            draw_circle(normal)
 
     #change pyautogui delay back
     gui.PAUSE = 0.1
