@@ -8,6 +8,8 @@ A collection of python scripts to automate playing certain minigames from Mario 
 
    - pyautogui
    - tkinter
+   - opencv-python
+   - pygetwindow
 
 ## Use
 
