@@ -21,7 +21,7 @@ def run_rail_riders():
 
 #hub window to access all scripts easily
 hub_window = Tk()
-hub_window.geometry('800x480')
+hub_window.geometry('200x200')
 hub_window.title('Mario Party DS Minigame Player')
 hub_window.iconbitmap('images/hub/dice_block.ico')
 
