@@ -15,7 +15,7 @@ def get_lead_out():
     window.activate()
 
     #delay the program starting to not mash early and mess up any menuing or switching to game window
-    time.sleep(2)
+    time.sleep(1)
 
     start_time = time.time()
     while time.time() - start_time <= 15:

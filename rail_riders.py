@@ -19,10 +19,10 @@ def ride_rails():
     endDrag = (left + width/2, top + height*(5/8))
 
     #delay the program starting to not swipe early and mess up any menuing or switching to game window
-    time.sleep(2)
+    time.sleep(1)
 
     start_time = time.time()
-    while time.time() - start_time <= 15:
+    while time.time() - start_time <= 10:
         #emergency escape key since it is bound to left shoulder, which is not used for any minigames
         if key.is_pressed('q'):
             exit(0)

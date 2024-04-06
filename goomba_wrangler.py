@@ -37,7 +37,7 @@ def goomba_wrangler():
     region_to_search = (left, top + height//2, width, height//2)
 
     #delay the program starting to not mess up any menuing or waste minigame time
-    time.sleep(3)
+    time.sleep(1)
 
     start_time = time.time()
     while time.time() - start_time <= 23:
