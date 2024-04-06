@@ -15,5 +15,5 @@ A collection of python scripts to automate playing certain minigames from Mario 
 
 1. Open DeSmuME and ensure that View > Window Size is set to 1 and View > Magnification Filter is set to 'Nearest 2X'. This is to ensure the image recognition in the scripts works properly.
 2. Open your rom of Mario Party DS and enter the minigame mode.
-3. Through the minigame mode menu, enter free play and set up a two player match.
+3. Through the minigame mode menu, enter free play.
 4. Start any of the supported minigames and then click the corresponding button in the program window to start the script.
