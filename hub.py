@@ -21,7 +21,7 @@ def run_rail_riders():
 
 #hub window to access all scripts easily
 hub_window = Tk()
-hub_window.geometry('200x200')
+hub_window.geometry('350x50')
 hub_window.title('Mario Party DS Minigame Player')
 hub_window.iconbitmap('images/hub/dice_block.ico')
 
@@ -34,12 +34,12 @@ hub_window.iconbitmap('images/hub/dice_block.ico')
 
 #buttons to run minigames
 btn_get_lead_out = Button(hub_window, text = "Get the Lead Out", command = run_get_lead_out)
-btn_get_lead_out.pack(pady=10)
+btn_get_lead_out.grid(row = 0, column = 0, padx = 10, pady=10)
 
 btn_goomba_wrnagler = Button(hub_window, text = "Goomba Wrangler", command = run_goomba_wrangler)
-btn_goomba_wrnagler.pack(pady=10)
+btn_goomba_wrnagler.grid(row = 0, column = 1, padx = 10, pady=10)
 
 btn_rail_riders = Button(hub_window, text = "Rail Riders", command = run_rail_riders)
-btn_rail_riders.pack(pady=10)
+btn_rail_riders.grid(row = 0, column = 2, padx = 10, pady=10)
 
 hub_window.mainloop()
